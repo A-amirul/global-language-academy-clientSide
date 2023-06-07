@@ -70,10 +70,10 @@ const Login = () => {
 									<Link className="label-text-alt link link-hover">Forgot password?</Link>
 								</label>
 							</div>
-							<p>{error}</p>
 							<div className="form-control mt-6">
 								<input className="btn bg-sky-600 rounded-full" type="submit" value="Login" />
 							</div>
+							<p>{error}</p>
 						</form>
 						<hr className="my-4" />
 						<button onClick={handleGoogleSignIn} className="btn btn-outline btn-success rounded-full"><FaGoogle className="me-2"></FaGoogle>Continue With Google</button>

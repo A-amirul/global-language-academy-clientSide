@@ -9,8 +9,8 @@ const ErrorPage = () => {
 				<img className='w-1/2 h-80 rounded-2xl' src={errorImg} alt="404" />
 
 				<div className='max-w-md text-center'>
-					<h2 className='mb-8 font-extrabold text-9xl text-red-600'>
-						<span className='sr-only'>Error</span> {status || 404}
+					<h2 className='mb-8 font-extrabold text-5xl text-red-600'>
+						<span className='sr-only'>Error</span> {status || "something wrong!!!"}
 					</h2>
 
 					<p className='text-2xl font-semibold md:text-3xl text-red-800 mb-8'>
