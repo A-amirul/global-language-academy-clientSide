@@ -10,7 +10,7 @@ const ErrorPage = () => {
 
 				<div className='max-w-md text-center'>
 					<h2 className='mb-8 font-extrabold text-9xl text-red-600'>
-						<span className='sr-only'>Error</span> {status || "Something went wrong!!!"}
+						<span className='sr-only'>Error</span> {status || 404}
 					</h2>
 
 					<p className='text-2xl font-semibold md:text-3xl text-red-800 mb-8'>
