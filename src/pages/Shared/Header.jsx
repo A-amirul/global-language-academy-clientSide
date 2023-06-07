@@ -14,21 +14,13 @@ const Header = () => {
 	}
 	const NavItems = <>
 		<li> <Link to="/">Home</Link></li>
-		<li><Link to="/">All Toys</Link></li>
-		{
-			user?.email ?
-				<>
-					<li><Link to="/">My Toys</Link></li>
-					<li><Link to="/">Add a Toy</Link></li>
-				</>
-				: ''
-
-		}
-		<li><Link to="/blog">Blog</Link></li>
+		<li><Link to="/">About</Link></li>
+		
+		<li><Link to="/">Blog</Link></li>
 
 	</>
 	return (
-		<div className="navbar bg-white shadow-sm md:px-64">
+		<div className="navbar bg-black text-white shadow-sm">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -39,7 +31,7 @@ const Header = () => {
 					</ul>
 				</div>
 				<Link to="/" className="font-bold text-xl">
-					<img className="mx-auto rounded-full" style={{ width: "80px", height: "70px" }} src={logo} alt="" />Disney<span className="text-amber-600">Dolls</span>
+					<img className="mx-auto" style={{ width: "200px", height: "50px" }} src={logo} alt="" />
 				</Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">
