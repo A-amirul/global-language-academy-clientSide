@@ -16,11 +16,11 @@ const Header = () => {
 		<li> <Link to="/">Home</Link></li>
 		<li><Link to="/about">About</Link></li>
 		
-		<li><Link to="/blog">Blog</Link></li>
+		<li><Link to="/">Blog</Link></li>
 
 	</>
 	return (
-		<div className="navbar bg-black text-white shadow-sm">
+		<div className="navbar fixed max-w-screen-xl mx-auto z-10 bg-opacity-30  bg-black text-white">
 			<div className="navbar-start">
 				<div className="dropdown">
 					<label tabIndex={0} className="btn btn-ghost lg:hidden">
