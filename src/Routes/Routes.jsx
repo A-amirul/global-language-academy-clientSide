@@ -3,9 +3,9 @@ import {
 } from "react-router-dom";
 import Main from "../Layouts/Main";
 import Home from "../pages/Home/Home";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import Login from "../pages/Login/Login";
 import Register from "../pages/Home/Registration/Register";
+import Login from "../pages/Login/Login";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
 	{
