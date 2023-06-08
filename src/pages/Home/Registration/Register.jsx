@@ -1,5 +1,5 @@
 import { useContext, useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useTitle from "../../../../useTitle";
 import { useForm } from "react-hook-form";
@@ -7,8 +7,9 @@ import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-	const { register,handleSubmit,watch, formState: { errors } } = useForm({mode:'onTouched'});
-	const { createUser } = useContext(AuthContext);
+	const { register,handleSubmit,watch, reset, formState: { errors } } = useForm({mode:'onTouched'});
+	const { createUser, updateUserProfile} = useContext(AuthContext);
+	const navigate = useNavigate();
 	// handle password eye
 	const [passwordEye, setPasswordEye] = useState(false);
 
@@ -30,13 +31,20 @@ const Register = () => {
 			.then(result => {
 				const loggedUser = result.user;
 				console.log(loggedUser);
-				Swal.fire({
-					position: 'top-end',
-					icon: 'success',
-					title: 'Registration Successful',
-					showConfirmButton: false,
-					timer: 1500
-				})
+				updateUserProfile(data.name, data.photo)
+					.then(() => {
+						reset();
+						Swal.fire({
+							position: 'top-end',
+							icon: 'success',
+							title: 'User Registration Successful',
+							showConfirmButton: false,
+							timer: 1500
+						});
+						navigate('/');
+					})
+					.catch(error => console.log(error.message));
+				
 			})
 	};
 
@@ -111,7 +119,7 @@ const Register = () => {
 									<label className="label">
 										<span className="label-text">Confirm Password</span>
 									</label>
-									<input type={confirmPasswordEye === false ? "password" : "text"} id="confirmPassword" name="confirmPassword"  {...register("confirmPassword", { validate: (value) => value === password || 'Passwords do not match', required:true })} placeholder="confirm password" className="input input-bordered" />
+									<input type={confirmPasswordEye === false ? "password" : "text"} id="confirmPassword" name="confirmPassword"  {...register("confirmPassword", { validate: (value) => value === password || 'Password does not match', required:true })} placeholder="confirm password" className="input input-bordered" />
 
 									{/* eye section */}
 									<div className="text-2xl absolute bottom-2 right-5">

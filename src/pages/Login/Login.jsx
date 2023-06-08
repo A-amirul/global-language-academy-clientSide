@@ -15,7 +15,6 @@ const Login = () => {
 	const { register, handleSubmit, formState: { errors } } = useForm();
 	// handle password eye
 	const [passwordEye, setPasswordEye] = useState(false);
-	
 
 	const handlePasswordClick = () => {
 		setPasswordEye(!passwordEye);
@@ -36,13 +35,13 @@ const Login = () => {
 				Swal.fire({
 					position: 'top-end',
 					icon: 'success',
-					title: 'Your work has been saved',
+					title: 'You are successfully Login',
 					showConfirmButton: false,
 					timer: 1500
 				})
 				navigate(from, { replace: true })
 			})
-			.catch(error => setError(error));
+			.catch(error => setError(error.message));
 	};
 
 
@@ -111,11 +110,11 @@ const Login = () => {
 								<label className="label">
 									<Link className="label-text-alt link link-hover">Forgot password?</Link>
 								</label>
+								<p className="text-red-600">{error}</p>
 							</div>
 							<div className="form-control mt-6">
 								<input className="btn bg-sky-600 rounded-full text-base-100" type="submit" value="Login" />
 							</div>
-							<p>{error}</p>
 						</form>
 						<hr className="my-4" />
 						<button onClick={handleGoogleSignIn} className="btn btn-outline rounded-full text-blue-600"><FaGoogle className="me-2 text-green-600"></FaGoogle>Continue With Google</button>
