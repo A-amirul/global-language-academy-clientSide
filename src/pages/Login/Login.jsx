@@ -1,13 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { AuthContext } from "../../providers/AuthProvider";
 import useTitle from "../../../useTitle";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-const provider = new GoogleAuthProvider();
-const auth = getAuth();
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Login = () => {
 	const [error, setError] = useState('');
@@ -45,24 +43,7 @@ const Login = () => {
 	};
 
 
-	const handleGoogleSignIn = () => {
-		signInWithPopup(auth, provider)
-			.then((result) => {
-				const loggedUser = result.user;
-				Swal.fire({
-					position: 'top-end',
-					icon: 'success',
-					title: 'Logged in Successfully',
-					showConfirmButton: false,
-					timer: 1500
-				})
-				console.log(loggedUser);
-				navigate(from, { replace: true })
-			})
-			.catch((error) => {
-				setError(error.message);
-			});
-	};
+	
 
 	useTitle("Login")
 
@@ -116,8 +97,7 @@ const Login = () => {
 								<input className="btn bg-sky-600 rounded-full text-base-100" type="submit" value="Login" />
 							</div>
 						</form>
-						<hr className="my-4" />
-						<button onClick={handleGoogleSignIn} className="btn btn-outline rounded-full text-blue-600"><FaGoogle className="me-2 text-green-600"></FaGoogle>Continue With Google</button>
+						<SocialLogin></SocialLogin>
 					</div>
 				</div>
 			</div>

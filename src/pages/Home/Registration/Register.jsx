@@ -5,6 +5,7 @@ import useTitle from "../../../../useTitle";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import SocialLogin from "../../SocialLogin/SocialLogin";
 
 const Register = () => {
 	const { register,handleSubmit,watch, reset, formState: { errors } } = useForm({mode:'onTouched'});
@@ -141,6 +142,7 @@ const Register = () => {
 						<label className="label">
 							<small>Already Have an Account?<Link to="/login" className="text-blue-600 px-3 hover:text-blue-900 font-bold">Login</Link> </small>
 						</label>
+						<SocialLogin></SocialLogin>
 					</div>
 				</div>
 			</div>
