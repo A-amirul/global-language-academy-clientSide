@@ -14,9 +14,11 @@ const Header = () => {
 	}
 	const NavItems = <>
 		<li> <Link to="/">Home</Link></li>
-		<li><Link to="/about">About</Link></li>
-		
-		<li><Link to="/">Blog</Link></li>
+		<li><Link to="/instructors">Instructors</Link></li>
+		<li><Link to="/classes">Classes</Link></li>
+		{
+			user? <><li><Link to="/dashboard">Dashboard</Link></li></>:<></>
+		}
 
 	</>
 	return (
@@ -31,7 +33,7 @@ const Header = () => {
 					</ul>
 				</div>
 				<Link to="/" className="font-bold text-xl">
-					<img className="mx-auto" style={{ width: "150px", height: "40px" }} src={logo} alt="" />
+					<img className="mx-auto" style={{ width: "150px", height: "45px" }} src={logo} alt="" />
 				</Link>
 			</div>
 			<div className="navbar-center hidden lg:flex">
