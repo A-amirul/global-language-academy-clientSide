@@ -1,0 +1,72 @@
+
+ [
+		{
+			"image": "https://i.ibb.co/SttK0bv/5.jpg",
+			"name": "Juan Garcia",
+			"email": "juan.garcia@example.com",
+			"classesTaken": 4,
+			"classNames": [
+				"Spanish 101",
+				"Spanish Conversation",
+				"Advanced Spanish Grammar",
+				"Latin American Literature"
+			]
+		},
+		{
+			"image": "https://i.ibb.co/kBG6MpY/6.jpg",
+			"name": "Sophie Dupont",
+			"email": "sophie.dupont@example.com",
+			"classesTaken": 3,
+			"classNames": [
+				"French Beginners",
+				"Intermediate French",
+				"French Culture and Civilization"
+			]
+		},
+		{
+			"image": "https://i.ibb.co/Sn8FGM4/7.jpg",
+			"name": "Hiroshi Tanaka",
+			"email": "hiroshi.tanaka@example.com",
+			"classesTaken": 5,
+			"classNames": [
+				"Japanese 101",
+				"Japanese Conversation",
+				"Kanji Writing",
+				"Japanese Literature",
+				"Japanese Calligraphy"
+			]
+		},
+		{
+			"image": "https://i.ibb.co/L1tCrwr/8.jpg",
+			"name": "Luisa Rossi",
+			"email": "luisa.rossi@example.com",
+			"classesTaken": 2,
+			"classNames": [
+				"Italian Beginners",
+				"Italian Conversation"
+			]
+		},
+		{
+			"image": "https://i.ibb.co/sVD3LrD/1.jpg",
+			"name": "Katja Müller",
+			"email": "katja.muller@example.com",
+			"classesTaken": 4,
+			"classNames": [
+				"German Grammar",
+				"German Pronunciation",
+				"Advanced German",
+				"German Literature"
+			]
+		},
+		{
+			"image": "https://i.ibb.co/hRTVJgd/4.jpg",
+			"name": "Anna Petrova",
+			"email": "anna.petrova@example.com",
+			"classesTaken": 3,
+			"classNames": [
+				"Russian Beginners",
+				"Intermediate Russian",
+				"Russian Culture and History"
+			]
+		}
+	]
