@@ -1,10 +1,39 @@
-import { FaAmazonPay } from "react-icons/fa";
+import { FaAmazonPay, FaTrashAlt } from "react-icons/fa";
 import useTitle from "../../../../../../useTitle";
 import useMyClass from "../../../../../hooks/useMyClass";
+import Swal from "sweetalert2";
 
 const MyClass = () => {
-	const [myClass] = useMyClass();
+	const [myClass,refetch] = useMyClass();
 	console.log(myClass);
+	const handleDelete = singleClass => {
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				fetch(`http://localhost:5000/myClass/${singleClass?._id}`, {
+					method:'DELETE'
+				})
+					.then(res => res.json())
+					.then(data => {
+						if (data.deletedCount > 0) {
+							refetch();
+							Swal.fire(
+								'Deleted!',
+								'Your file has been deleted.',
+								'success'
+							)
+					}
+				})
+			}
+		})
+	}
 
 	useTitle("My Class");
 	return (
@@ -15,7 +44,7 @@ const MyClass = () => {
 					<table className="table">
 						{/* head */}
 						<thead className="font-bold text-xl">
-							<tr>
+							<tr className="bg-green-300">
 								<th>#</th>
 								<th>Image</th>
 								<th>Instructor Name</th>
@@ -29,7 +58,7 @@ const MyClass = () => {
 								myClass?.map((singleClass, index) => <tr key={singleClass._id}>
 
 									<td>
-										{index + 1}
+										<p className="font-bold"> {index + 1}</p>
 
 									</td>
 
@@ -37,25 +66,24 @@ const MyClass = () => {
 										<div className="flex items-center space-x-3">
 											<div className="avatar">
 												<div className="mask mask-squire w-24 h-24">
-													<img src={singleClass.image} alt="Avatar Tailwind CSS Component" />
+													<img src={singleClass.image} alt="Avatar" />
 												</div>
 											</div>
 
 										</div>
 									</td>
 									<td>
-										<p className="font-bold text-lg">{singleClass.instructor}</p>
+										<p className="font-semibold text-lg">{singleClass.instructor}</p>
 									</td>
 									<td>
 										<p className="text-lg font-medium">{singleClass.name} Language</p>
 									</td>
-									<td>{singleClass.price}</td>
+									<td><p className="font-medium">{singleClass.price}</p></td>
 									<td className="flex mt-4">
-										<button className="btn btn-square btn-outline mx-4 w-16">
-											
-											<svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+										<button onClick={()=>handleDelete(singleClass)} className="btn btn-square btn-outline  w-16">
+											<FaTrashAlt className="h-5 w-6"></FaTrashAlt>
 										</button>
-										<button className="btn btn-square btn-outline bg-amber-600 w-16">
+										<button className="btn btn-square btn-outline mx-4 bg-amber-600 w-16">
 											<FaAmazonPay className="h-6 w-6"></FaAmazonPay>
 										</button>
 									</td>

@@ -39,12 +39,12 @@ const Instructors = () => {
 									</div>
 								</td>
 								<td>
-									<p className="font-bold text-lg">{instructor.name}</p>
+									<p className="font-semibold text-lg">{instructor.name}</p>
 								</td>
 								<td>
 									<p className="text-lg font-medium">{instructor.email} Language</p>
 								</td>
-								<td>{instructor.classesTaken}</td>
+								<td><p className="font-bold">{instructor.classesTaken}</p></td>
 								
 							</tr>)
 						}

@@ -62,7 +62,7 @@ const Classes = () => {
 				<table className="table">
 					{/* head */}
 					<thead className="font-bold text-xl text-green-900">
-						<tr>
+						<tr className="bg-green-300">
 							<th>#</th>
 							<th>Image</th>
 							<th>Instructor Name</th>
@@ -92,7 +92,7 @@ const Classes = () => {
 									</div>
 								</td>
 								<td>
-									<p className="font-bold text-lg">{singleClass.instructor}</p>
+									<p className="font-semibold text-lg">{singleClass.instructor}</p>
 								</td>
 								<td>
 									<p className="text-lg font-medium">{singleClass.name} Language</p>
@@ -101,7 +101,7 @@ const Classes = () => {
 								<td>{singleClass.availableSeats}</td>
 								<td className="w-20">
 									<label>
-										<input onClick={()=>handleSelect(singleClass)} type="checkbox" className="checkbox w-10 h-10 border-4 border-blue-800" />
+										<input onClick={()=>handleSelect(singleClass)} type="checkbox" className="checkbox w-8 h-8 border-4 border-sky-700" />
 									</label>
 								</td>
 							</tr>)
