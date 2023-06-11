@@ -9,6 +9,8 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Instructors from "../pages/Home/Home/Instructors/Instructors";
 import Classes from "../pages/Home/Home/Classes/Classes";
 import Dashboard from "../pages/Home/Home/Dashboard/Dashboard ";
+import MyClass from "../pages/Home/Home/Dashboard/MyClass/MyClass";
+import EnrolledClass from "../pages/Home/Home/Dashboard/EnrolledClass/EnrolledClass";
 
 export const router = createBrowserRouter([
 	{
@@ -41,6 +43,18 @@ export const router = createBrowserRouter([
 	{
 		path: "dashboard",
 		element: <Dashboard></Dashboard>,
+		children: [
+			{
+				path: 'myClass',
+				element:<MyClass></MyClass>
+				
+			},
+			{
+				path: 'enrollClass',
+				element:<EnrolledClass></EnrolledClass>
+				
+			}
+		]
 		
 	}
 ]);

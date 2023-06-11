@@ -3,7 +3,7 @@ import InstructorCard from "../Instructors/InstructorCard";
 
 const PopularInstructors = () => {
 	const [instructors] = useInstructors();
-	
+
 	return (
 		<div>
 			<h2 className="text-5xl font-medium text-center py-10">Popular Instructors</h2>
