@@ -19,7 +19,7 @@ const Dashboard  = () => {
 				<label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 				<ul className="menu p-8 w-80 h-full bg-base-300 text-black font-bold text-lg">
 					{/* Sidebar content here */}
-					<li><NavLink to="myClass"><FaBook></FaBook> My Classes</NavLink></li>
+					<li><NavLink to="/dashboard/myClass"><FaBook></FaBook> My Classes</NavLink></li>
 					<li><NavLink to="enrollClass"><FaClipboardCheck></FaClipboardCheck>My Enrolled Classes</NavLink></li>
 
 

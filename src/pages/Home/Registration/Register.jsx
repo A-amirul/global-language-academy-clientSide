@@ -26,7 +26,6 @@ const Register = () => {
 	};
 
 	const onSubmit = data => {
-		console.log(data);
 
 		createUser(data.email, data.password)
 			.then(result => {
@@ -34,15 +33,29 @@ const Register = () => {
 				console.log(loggedUser);
 				updateUserProfile(data.name, data.photo)
 					.then(() => {
-						reset();
-						Swal.fire({
-							position: 'top-end',
-							icon: 'success',
-							title: 'User Registration Successful',
-							showConfirmButton: false,
-							timer: 1500
-						});
-						navigate('/');
+						const saveUser={name:data.name, email:data.email, photo:data.photo}
+						fetch('http://localhost:5000/users', {
+							method: 'POST',
+							headers: {
+								'content-type':'application/json'
+						},
+							body:JSON.stringify(saveUser)
+						})
+							.then(res => res.json())
+							.then(data => {
+								if (data.insertedId) {
+									reset();
+									Swal.fire({
+										position: 'top-end',
+										icon: 'success',
+										title: 'User Registration Successful',
+										showConfirmButton: false,
+										timer: 1500
+									});
+									navigate('/');
+							}
+						})
+						
 					})
 					.catch(error => console.log(error.message));
 				
