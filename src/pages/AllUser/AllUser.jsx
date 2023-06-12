@@ -28,8 +28,24 @@ const AllUser = () => {
 		})
 
 	}
-	const handleMakeInstructor = id => {
-		
+	const handleMakeInstructor = user => {
+		fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+			method: 'PATCH'
+		})
+			.then(res => res.json())
+			.then(data => {
+				console.log(data);
+				if (data.modifiedCount) {
+					refetch();
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: `${user.name}is an Instructor Now`,
+						showConfirmButton: false,
+						timer: 1500
+					});
+				}
+			})
 	}
 	return (
 		<div className="overflow-x-auto pt-20 px-10 bg-green-200">
@@ -58,12 +74,12 @@ const AllUser = () => {
 							</td>
 							<td>
 								<div className="flex gap-4">
-									<span>
-										{user.role === 'admin' ? 'admin' : <button onClick={()=>handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie>Admin</button>}
+									<span className="font-medium">
+										{user.role === 'admin' ? 'Admin' : <button onClick={()=>handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie>Admin</button>}
 									</span>
-									<span>
+									<span className="font-medium">
 										{
-											user.role === 'instructor' ? 'instructor' :
+											user.role === 'instructor' ? 'Instructor' :
 												<button onClick={()=>handleMakeInstructor(user)} className="btn bg-red-700 text-white normal-case"><FaUserShield></FaUserShield>Instructor</button>
 										}
 									</span>
