@@ -50,7 +50,8 @@ const MyClass = () => {
 								<th>Instructor Name</th>
 								<th>Course</th>
 								<th>Course Fee</th>
-								<th>Action</th>
+								<th>Delete</th>
+								<th>Pay</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -79,12 +80,15 @@ const MyClass = () => {
 										<p className="text-lg font-medium">{singleClass.name} Language</p>
 									</td>
 									<td><p className="font-medium">{singleClass.price}</p></td>
-									<td className="flex mt-4">
+									<td>
 										<button onClick={()=>handleDelete(singleClass)} className="btn btn-square btn-outline  w-16">
 											<FaTrashAlt className="h-5 w-6"></FaTrashAlt>
 										</button>
-										<button className="btn btn-square btn-outline mx-4 bg-amber-600 w-16">
-											<FaAmazonPay className="h-6 w-6"></FaAmazonPay>
+										
+									</td>
+									<td>
+										<button className="btn btn-square btn-outline bg-amber-600 w-16">
+											<FaAmazonPay className="h-6 w-6 text-white"></FaAmazonPay>
 										</button>
 									</td>
 								</tr>)

@@ -13,6 +13,10 @@ import MyClass from "../pages/Home/Home/Dashboard/MyClass/MyClass";
 import EnrolledClass from "../pages/Home/Home/Dashboard/EnrolledClass/EnrolledClass";
 import PrivateRoute from "./PrivateRoute";
 import AllUser from "../pages/AllUser/AllUser";
+import AddClass from "../pages/AddClass/AddClass";
+import AllClass from "../pages/AllClass/AllClass";
+import AdminRoute from "./AdminRoute";
+import InstructorClass from "../pages/InstructorClass/InstructorClass";
 
 export const router = createBrowserRouter([
 	{
@@ -58,8 +62,28 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: 'allUser',
-				element:<AllUser></AllUser>
+				element: <AdminRoute><AllUser></AllUser></AdminRoute>
 				
+			},
+			{
+				path: 'addClass',
+				element:<AddClass></AddClass>
+				
+			},
+			{
+				path: 'enrollClass',
+				element:<EnrolledClass></EnrolledClass>
+				
+			},
+			{
+				path: 'allClass',
+				element: <AdminRoute><AllClass></AllClass></AdminRoute>
+				
+			},
+			{
+				path: "instructorClass",
+				element: <InstructorClass></InstructorClass>,
+				loader: () => fetch("http://localhost:5000/classes")
 			}
 		]
 		

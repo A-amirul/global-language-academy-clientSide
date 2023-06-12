@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { FaUserShield, FaUserTie } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const AllUser = () => {
+	const [axiosSecure] = useAxiosSecure();
 	const { data: users = [], refetch } = useQuery(['users'], async () => {
-		const res = await fetch('http://localhost:5000/users')
-		return res.json();
+		const res = await axiosSecure.get('/users')
+		return res.data;
 	})
 
 	const handleMakeAdmin = user => {
@@ -56,7 +58,8 @@ const AllUser = () => {
 						<th>#</th>
 						<th>User Name</th>
 						<th>Email Address</th>
-						<th>Roll</th>
+						<th>Make Admin</th>
+						<th>Make Instructor</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -70,20 +73,21 @@ const AllUser = () => {
 								<p className="font-semibold text-lg">{user.name}</p>
 							</td>
 							<td>
-								<p className="text-lg font-medium">{user.email} Language</p>
+								<p className="text-lg font-medium">{user.email}</p>
 							</td>
 							<td>
-								<div className="flex gap-4">
 									<span className="font-medium">
-										{user.role === 'admin' ? 'Admin' : <button onClick={()=>handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie>Admin</button>}
+										{user.role === 'admin' ? 'Admin' : <button onClick={()=>handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie></button>}
 									</span>
-									<span className="font-medium">
-										{
-											user.role === 'instructor' ? 'Instructor' :
-												<button onClick={()=>handleMakeInstructor(user)} className="btn bg-red-700 text-white normal-case"><FaUserShield></FaUserShield>Instructor</button>
-										}
-									</span>
-								</div>
+							
+							</td>
+							<td>
+								<span className="font-medium">
+									{
+										user.role === 'instructor' ? 'Instructor' :
+											<button onClick={() => handleMakeInstructor(user)} className="btn bg-red-400 text-white normal-case"><FaUserShield></FaUserShield></button>
+									}
+								</span>
 							</td>
 
 						</tr>)

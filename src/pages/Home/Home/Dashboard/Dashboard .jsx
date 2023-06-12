@@ -1,10 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBook, FaHome, FaUserTie, FaClipboardCheck, FaAlignLeft } from "react-icons/fa";
+import useAdmin from "../../../../hooks/useAdmin";
 
 const Dashboard = () => {
 
 	// TODO
-	const isAdmin = true;
+	// const isAdmin = true;
+	const [isAdmin] = useAdmin();
+
+
 	return (
 		<div className="drawer lg:drawer-open">
 			
@@ -24,22 +28,28 @@ const Dashboard = () => {
 					{/* Sidebar content here */}
 					{
 						isAdmin ? <>
-							<li><NavLink to="/dashboard/home"><FaHome></FaHome>Admin Home</NavLink></li>
-							<li><NavLink to="/dashboard/manage"><FaBook></FaBook> Manage Classes</NavLink></li>
-							<li><NavLink to="/dashboard/allUser"><FaClipboardCheck></FaClipboardCheck>Manage Users</NavLink></li>
-						
-						
+							<div>
+								<li className="text-blue-800"><NavLink to="/dashboard"><FaHome></FaHome>Admin Home</NavLink></li>
+								<li><NavLink to="/dashboard/allClass"><FaBook></FaBook> Manage Classes</NavLink></li>
+								<li><NavLink to="/dashboard/allUser"><FaClipboardCheck></FaClipboardCheck>Manage Users</NavLink></li>
+							</div>
 						
 						</> : <>
 								<div>
-									<li><NavLink to="/dashboard/home"><FaHome></FaHome>Student Home</NavLink></li>
+									<li><NavLink to="/dashboard"><FaHome></FaHome>Instructors Home</NavLink></li>
+									<li><NavLink to="/dashboard/addClass"><FaBook></FaBook> Add a Class</NavLink></li>
+									<li><NavLink to="/dashboard/instructorClass"><FaClipboardCheck></FaClipboardCheck>My Classes</NavLink></li>
+								</div>||
+								<div>
+									<li><NavLink to="/dashboard"><FaHome></FaHome>Student Home</NavLink></li>
 									<li><NavLink to="/dashboard/myClass"><FaBook></FaBook> My Classes</NavLink></li>
-									<li><NavLink to="enrollClass"><FaClipboardCheck></FaClipboardCheck>My Enrolled Classes</NavLink></li>
+									<li><NavLink to="/dashboard/enrollClass"><FaClipboardCheck></FaClipboardCheck>My Enrolled Classes</NavLink></li>
 								</div>
+
 								{/* || <div>
-									<li><NavLink to="/dashboard/home"><FaHome></FaHome>Instructors Home</NavLink></li>
-									<li><NavLink to="/dashboard"><FaBook></FaBook> Add a Class</NavLink></li>
-									<li><NavLink to="enrollClass"><FaClipboardCheck></FaClipboardCheck>My Classes</NavLink></li>
+									<li><NavLink to="/dashboard"><FaHome></FaHome>Instructors Home</NavLink></li>
+									<li><NavLink to="/dashboard/addClass"><FaBook></FaBook> Add a Class</NavLink></li>
+									<li><NavLink to="/dashboard/enrollClass"><FaClipboardCheck></FaClipboardCheck>My Classes</NavLink></li>
 							</div> */}
 						
 						</>
