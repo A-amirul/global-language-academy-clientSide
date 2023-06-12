@@ -1,7 +1,6 @@
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
 
@@ -16,15 +15,21 @@ const SocialLogin = () => {
 		signInWithPopup(auth, provider)
 			.then((result) => {
 				const loggedUser = result.user;
-				Swal.fire({
-					position: 'top-end',
-					icon: 'success',
-					title: 'Logged in Successfully',
-					showConfirmButton: false,
-					timer: 1500
-				})
 				console.log(loggedUser);
-				navigate(from, { replace: true })
+
+				const saveUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser?.reloadUserInfo?.photoUrl }
+
+				fetch('http://localhost:5000/users', {
+					method: 'POST',
+					headers: {
+						'content-type': 'application/json'
+					},
+					body: JSON.stringify(saveUser)
+				})
+					.then(res => res.json())
+					.then(() => {
+						navigate(from, { replace: true })
+					})
 			})
 			.catch((error) => {
 				console.log(error.message);
