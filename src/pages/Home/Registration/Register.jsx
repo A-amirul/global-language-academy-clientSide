@@ -34,7 +34,7 @@ const Register = () => {
 				updateUserProfile(data.name, data.photo)
 					.then(() => {
 						const saveUser = { name: data.name, email: data.email, photo: data.photo }
-						fetch('https://global-language-academy-server-a-amirul.vercel.app/users', {
+						fetch('https://global-language-academy-server-sable.vercel.app/users', {
 							method: 'POST',
 							headers: {
 								'content-type': 'application/json'

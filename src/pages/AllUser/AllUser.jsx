@@ -11,7 +11,7 @@ const AllUser = () => {
 	})
 
 	const handleMakeAdmin = user => {
-		fetch(`https://global-language-academy-server-a-amirul.vercel.app/users/admin/${user._id}`, {
+		fetch(`https://global-language-academy-server-sable.vercel.app/users/admin/${user._id}`, {
 			method: 'PATCH'
 		})
 			.then(res => res.json())
@@ -31,7 +31,7 @@ const AllUser = () => {
 
 	}
 	const handleMakeInstructor = user => {
-		fetch(`https://global-language-academy-server-a-amirul.vercel.app/users/instructor/${user._id}`, {
+		fetch(`https://global-language-academy-server-sable.vercel.app/users/instructor/${user._id}`, {
 			method: 'PATCH'
 		})
 			.then(res => res.json())

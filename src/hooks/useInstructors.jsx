@@ -6,7 +6,7 @@ const useInstructors = () => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch('https://global-language-academy-server-a-amirul.vercel.app/instructors')
+		fetch('https://global-language-academy-server-sable.vercel.app/instructors')
 			.then(res => res.json())
 			.then(data => {
 				setInstructors(data);

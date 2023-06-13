@@ -18,7 +18,7 @@ const Classes = () => {
 		const { availableSeats, price, image, name, instructor, _id } = singleClass;
 		if (user && user.email) {
 			const selectClass = { classId: _id, availableSeats, price, image, name, instructor, email: user?.email }
-			fetch('https://global-language-academy-server-a-amirul.vercel.app/myClass', {
+			fetch('https://global-language-academy-server-sable.vercel.app/myClass', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json'

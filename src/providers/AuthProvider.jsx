@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
 
 			// get and set token
 			if (currentUser) {
-				axios.post('https://global-language-academy-server-a-amirul.vercel.app/jwt', { email: currentUser.email })
+				axios.post('https://global-language-academy-server-sable.vercel.app/jwt', { email: currentUser.email })
 					.then(data => {
 						localStorage.setItem('access-token', data.data.token);
 						setLoading(false);

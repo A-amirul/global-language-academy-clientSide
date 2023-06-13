@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuth from './useAuth';
 
 const axiosSecure = axios.create({
-	baseURL: 'https://global-language-academy-server-a-amirul.vercel.app',
+	baseURL: 'https://global-language-academy-server-sable.vercel.app',
 });
 
 const useAxiosSecure = () => {

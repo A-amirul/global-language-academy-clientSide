@@ -10,7 +10,7 @@ const AddClass = () => {
 
 	const onSubmit = data => {
 
-		fetch("https://global-language-academy-server-a-amirul.vercel.app/classes", {
+		fetch("https://global-language-academy-server-sable.vercel.app/classes", {
 			method: "POST",
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data)

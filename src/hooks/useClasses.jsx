@@ -6,7 +6,7 @@ const useClasses = () => {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch('https://global-language-academy-server-a-amirul.vercel.app/classes')
+		fetch('https://global-language-academy-server-sable.vercel.app/classes')
 			.then(res => res.json())
 			.then(data => {
 				setClasses(data);

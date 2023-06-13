@@ -21,7 +21,7 @@ const MyClass = () => {
 			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`https://global-language-academy-server-a-amirul.vercel.app/myClass/${singleClass?._id}`, {
+				fetch(`https://global-language-academy-server-sable.vercel.app/myClass/${singleClass?._id}`, {
 					method: 'DELETE'
 				})
 					.then(res => res.json())

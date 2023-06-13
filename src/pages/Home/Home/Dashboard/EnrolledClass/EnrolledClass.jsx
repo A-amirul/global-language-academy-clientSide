@@ -5,7 +5,7 @@ const EnrolledClass = () => {
 	const [payments, setPayments] = useState();
 	const { user } = useContext(AuthContext);
 	useEffect(() => {
-		fetch('https://global-language-academy-server-a-amirul.vercel.app/payments')
+		fetch('https://global-language-academy-server-sable.vercel.app/payments')
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
