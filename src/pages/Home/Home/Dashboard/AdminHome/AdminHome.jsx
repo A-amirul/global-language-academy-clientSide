@@ -1,4 +1,4 @@
-import { Fade, Flip, Rotate, Zoom } from "react-awesome-reveal";
+import { Bounce, Fade, Flip, Rotate, Zoom } from "react-awesome-reveal";
 import useClasses from "../../../../../hooks/useClasses";
 import useInstructors from "../../../../../hooks/useInstructors";
 import useAxiosSecure from "../../../../../hooks/useAxiosSecure";
@@ -18,15 +18,18 @@ const AdminHome = () => {
 	return (
 		<>
 			<div className="flex items-center">
-				<Zoom>
+				
 					<div className="border shadow-md bg-green-600 text-white text-center p-10 m-10">
+					<Bounce>
 						<h2 className="text-5xl font-extrabold">Welcome to Visit Global Language Academy!!</h2>
-
+						</Bounce>
+					<Zoom>
 						<p className="text-4xl text-green-800 py-10 font-extrabold">You are Logged in as a Admin</p>
+					</Zoom>
+
 
 					</div>
 
-				</Zoom>
 
 				
 
