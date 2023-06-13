@@ -3,9 +3,13 @@ import logo from "../../assets/logo.png"
 import userImg from "/user.png"
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 const Header = () => {
 	const { user, logOut } = useContext(AuthContext);
+	const [isAdmin] = useAdmin();
+	const [isInstructor] = useInstructor();
 
 	const handleLogOut = () => {
 		logOut()
@@ -14,10 +18,21 @@ const Header = () => {
 	}
 	const NavItems = <>
 		<li> <Link to="/">Home</Link></li>
-		<li><Link to="/instructors">Instructors</Link></li>
-		<li><Link to="/classes">Classes</Link></li>
+		<li><Link to="/allMainInstructor">Instructors</Link></li>
+		<li><Link to="/allMainClasses">Classes</Link></li>
 		{
-			user? <><li><Link to="/dashboard">Dashboard</Link></li></>:<></>
+			user ? <>
+				
+				{
+				isAdmin? <><li><Link to="/dashboard/adminHome">Dashboard</Link></li></> : <>
+					
+					{
+							isInstructor? <><li><Link to="/dashboard/instructorHome">Dashboard</Link></li></> : <><li><Link to="/dashboard/studentHome">Dashboard</Link></li></>
+					}
+					</>
+				}
+			
+			</> : <></>
 		}
 
 	</>

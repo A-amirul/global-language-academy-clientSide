@@ -5,6 +5,7 @@ import { FaAmazonPay } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import "./CheckoutForm.css"
+import Swal from "sweetalert2";
 
 
 const CheckoutForm = ({singleClass, price }) => {
@@ -84,13 +85,20 @@ const CheckoutForm = ({singleClass, price }) => {
 				date: new Date(),
 				classId:singleClass._id,
 				status: 'service pending',
-				className: singleClass.name
+				className: singleClass?.name
 			}
 			axiosSecure.post('/payments', payment)
 				.then(res => {
 					console.log(res.data);
-					if (res?.data?.result?.insertedId) {
+					if (res?.data?.insertedId) {
 						// display confirm
+						Swal.fire({
+							position: 'top-end',
+							icon: 'success',
+							title: 'Your payment successful',
+							showConfirmButton: false,
+							timer: 1500
+						})
 					}
 				})
 		}

@@ -17,11 +17,11 @@ const Classes = () => {
 		console.log(singleClass);
 		const { availableSeats, price, image, name, instructor, _id } = singleClass;
 		if (user && user.email) {
-			const selectClass = { classId: _id, availableSeats, price, image, name, instructor,email:user?.email }
-			fetch('http://localhost:5000/myClass', {
+			const selectClass = { classId: _id, availableSeats, price, image, name, instructor, email: user?.email }
+			fetch('https://global-language-academy-server-a-amirul.vercel.app/myClass', {
 				method: 'POST',
 				headers: {
-					'content-type':'application/json'
+					'content-type': 'application/json'
 				},
 				body: JSON.stringify(selectClass)
 			})
@@ -36,8 +36,8 @@ const Classes = () => {
 							showConfirmButton: false,
 							timer: 1500
 						})
-				}
-			})
+					}
+				})
 		}
 		else {
 			Swal.fire({
@@ -49,7 +49,7 @@ const Classes = () => {
 				confirmButtonText: 'Login Now!'
 			}).then((result) => {
 				if (result.isConfirmed) {
-				navigate('/login',{state:{from:location}});
+					navigate('/login', { state: { from: location } });
 				}
 			})
 		}
@@ -101,7 +101,7 @@ const Classes = () => {
 								<td>{singleClass.availableSeats}</td>
 								<td className="w-20">
 									<label>
-										<input onClick={()=>handleSelect(singleClass)} type="checkbox" className="checkbox w-8 h-8 border-4 border-sky-700" />
+										<input onClick={() => handleSelect(singleClass)} type="checkbox" className="checkbox w-8 h-8 border-4 border-sky-700" />
 									</label>
 								</td>
 							</tr>)

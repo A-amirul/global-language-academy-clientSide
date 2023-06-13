@@ -19,7 +19,7 @@ const SocialLogin = () => {
 
 				const saveUser = { name: loggedUser.displayName, email: loggedUser.email, photo: loggedUser?.reloadUserInfo?.photoUrl }
 
-				fetch('http://localhost:5000/users', {
+				fetch('https://global-language-academy-server-a-amirul.vercel.app/users', {
 					method: 'POST',
 					headers: {
 						'content-type': 'application/json'
@@ -39,7 +39,7 @@ const SocialLogin = () => {
 		<div className="mx-auto">
 			<hr className="my-4" />
 			<button onClick={handleGoogleSignIn} className="btn btn-outline rounded-full text-blue-600"><FaGoogle className="me-2 text-green-600"></FaGoogle>Continue With Google</button>
-		
+
 		</div>
 	);
 };

@@ -11,8 +11,8 @@ const AllUser = () => {
 	})
 
 	const handleMakeAdmin = user => {
-		fetch(`http://localhost:5000/users/admin/${user._id}`, {
-			method:'PATCH'
+		fetch(`https://global-language-academy-server-a-amirul.vercel.app/users/admin/${user._id}`, {
+			method: 'PATCH'
 		})
 			.then(res => res.json())
 			.then(data => {
@@ -27,11 +27,11 @@ const AllUser = () => {
 						timer: 1500
 					});
 				}
-		})
+			})
 
 	}
 	const handleMakeInstructor = user => {
-		fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+		fetch(`https://global-language-academy-server-a-amirul.vercel.app/users/instructor/${user._id}`, {
 			method: 'PATCH'
 		})
 			.then(res => res.json())
@@ -76,10 +76,10 @@ const AllUser = () => {
 								<p className="text-lg font-medium">{user.email}</p>
 							</td>
 							<td>
-									<span className="font-medium">
-										{user.role === 'admin' ? 'Admin' : <button onClick={()=>handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie></button>}
-									</span>
-							
+								<span className="font-medium">
+									{user.role === 'admin' ? 'Admin' : <button onClick={() => handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie></button>}
+								</span>
+
 							</td>
 							<td>
 								<span className="font-medium">

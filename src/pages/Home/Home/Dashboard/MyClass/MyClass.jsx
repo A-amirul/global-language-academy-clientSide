@@ -3,9 +3,13 @@ import useTitle from "../../../../../../useTitle";
 import useMyClass from "../../../../../hooks/useMyClass";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../../../providers/AuthProvider";
 
 const MyClass = () => {
-	const [myClass,refetch] = useMyClass();
+	const [myClass, refetch] = useMyClass();
+	const { user } = useContext(AuthContext);
+	const addedClass = myClass?.filter(data => data.email == user.email)
 	const handleDelete = singleClass => {
 		Swal.fire({
 			title: 'Are you sure?',
@@ -17,8 +21,8 @@ const MyClass = () => {
 			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(`http://localhost:5000/myClass/${singleClass?._id}`, {
-					method:'DELETE'
+				fetch(`https://global-language-academy-server-a-amirul.vercel.app/myClass/${singleClass?._id}`, {
+					method: 'DELETE'
 				})
 					.then(res => res.json())
 					.then(data => {
@@ -29,8 +33,8 @@ const MyClass = () => {
 								'Your file has been deleted.',
 								'success'
 							)
-					}
-				})
+						}
+					})
 			}
 		})
 	}
@@ -38,7 +42,7 @@ const MyClass = () => {
 	useTitle("My Class");
 	return (
 		<div className="bg-base-200">
-			<h2 className="text-5xl text-center font-bold py-10">My Class: {myClass.length}</h2>
+			<h2 className="text-5xl text-center font-bold py-10">My Class: {addedClass?.length}</h2>
 			<div>
 				<div className="overflow-x-auto px-10 bg-green-200">
 					<table className="table">
@@ -56,7 +60,7 @@ const MyClass = () => {
 						</thead>
 						<tbody>
 							{
-								myClass?.map((singleClass, index) => <tr key={singleClass._id}>
+								addedClass?.map((singleClass, index) => <tr key={singleClass._id}>
 
 									<td>
 										<p className="font-bold"> {index + 1}</p>
@@ -81,10 +85,10 @@ const MyClass = () => {
 									</td>
 									<td><p className="font-medium">${singleClass.price}</p></td>
 									<td>
-										<button onClick={()=>handleDelete(singleClass)} className="btn btn-square btn-outline  w-16">
+										<button onClick={() => handleDelete(singleClass)} className="btn btn-square btn-outline  w-16">
 											<FaTrashAlt className="h-5 w-6"></FaTrashAlt>
 										</button>
-										
+
 									</td>
 									<td>
 										<Link to={`/dashboard/payment?id=${singleClass._id}`}><button className="btn btn-square btn-outline bg-amber-600 w-16">

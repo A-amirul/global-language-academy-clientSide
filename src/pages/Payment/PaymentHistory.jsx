@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const PaymentHistory = () => {
 	const [payments, setPayments] = useState();
+	const { user } = useContext(AuthContext);
 	useEffect(() => {
-		fetch('http://localhost:5000/payments')
+		fetch('https://global-language-academy-server-a-amirul.vercel.app/payments')
 			.then(res => res.json())
 			.then(data => {
 				console.log(data);
@@ -11,9 +13,11 @@ const PaymentHistory = () => {
 
 			})
 	}, [])
+
+	const myPayments = payments?.filter(data => data.email === user.email);
 	return (
 		<div className="bg-base-200">
-			<h2 className="text-5xl text-center font-bold py-10">My Payment History: {payments?.length}</h2>
+			<h2 className="text-5xl text-center font-bold py-10">My Payment History: {myPayments?.length}</h2>
 			<div>
 				<div className="overflow-x-auto px-10 bg-green-200">
 					<table className="table">
@@ -29,7 +33,7 @@ const PaymentHistory = () => {
 						</thead>
 						<tbody>
 							{
-								payments?.map((payment, index) => <tr key={payment._id}>
+								myPayments?.map((payment, index) => <tr key={payment._id}>
 
 									<td>
 										<p className="font-bold"> {index + 1}</p>

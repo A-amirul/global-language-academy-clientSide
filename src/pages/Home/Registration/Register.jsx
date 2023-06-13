@@ -1,4 +1,4 @@
-import { useContext, useState} from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import useTitle from "../../../../useTitle";
@@ -8,8 +8,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../../SocialLogin/SocialLogin";
 
 const Register = () => {
-	const { register,handleSubmit,watch, reset, formState: { errors } } = useForm({mode:'onTouched'});
-	const { createUser, updateUserProfile} = useContext(AuthContext);
+	const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({ mode: 'onTouched' });
+	const { createUser, updateUserProfile } = useContext(AuthContext);
 	const navigate = useNavigate();
 	// handle password eye
 	const [passwordEye, setPasswordEye] = useState(false);
@@ -33,13 +33,13 @@ const Register = () => {
 				console.log(loggedUser);
 				updateUserProfile(data.name, data.photo)
 					.then(() => {
-						const saveUser={name:data.name, email:data.email, photo:data.photo}
-						fetch('http://localhost:5000/users', {
+						const saveUser = { name: data.name, email: data.email, photo: data.photo }
+						fetch('https://global-language-academy-server-a-amirul.vercel.app/users', {
 							method: 'POST',
 							headers: {
-								'content-type':'application/json'
-						},
-							body:JSON.stringify(saveUser)
+								'content-type': 'application/json'
+							},
+							body: JSON.stringify(saveUser)
 						})
 							.then(res => res.json())
 							.then(data => {
@@ -53,20 +53,20 @@ const Register = () => {
 										timer: 1500
 									});
 									navigate('/');
-							}
-						})
-						
+								}
+							})
+
 					})
 					.catch(error => console.log(error.message));
-				
+
 			})
 	};
 
 	const password = watch('password');
 
 
-		useTitle("Register");
-		
+	useTitle("Register");
+
 	return (
 		<div className="hero min-h-screen bg-base-200">
 			<div>
@@ -119,7 +119,7 @@ const Register = () => {
 											<FaEye onClick={handlePasswordClick} />
 										)}
 									</div>
-									
+
 								</div>
 								{errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
 								{errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
@@ -133,7 +133,7 @@ const Register = () => {
 									<label className="label">
 										<span className="label-text">Confirm Password</span>
 									</label>
-									<input type={confirmPasswordEye === false ? "password" : "text"} id="confirmPassword" name="confirmPassword"  {...register("confirmPassword", { validate: (value) => value === password || 'Password does not match', required:true })} placeholder="confirm password" className="input input-bordered" />
+									<input type={confirmPasswordEye === false ? "password" : "text"} id="confirmPassword" name="confirmPassword"  {...register("confirmPassword", { validate: (value) => value === password || 'Password does not match', required: true })} placeholder="confirm password" className="input input-bordered" />
 
 									{/* eye section */}
 									<div className="text-2xl absolute bottom-2 right-5">
@@ -143,10 +143,10 @@ const Register = () => {
 											<FaEye onClick={handleConfirmPasswordClick} />
 										)}
 									</div>
-									
+
 								</div>
 								{errors.confirmPassword && <span className="text-red-600">{errors.confirmPassword.message}</span>}
-								{errors.confirmPassword?.type==='required' && <span className="text-red-600">Confirm password required</span>}
+								{errors.confirmPassword?.type === 'required' && <span className="text-red-600">Confirm password required</span>}
 							</div>
 							<div className="form-control mt-6">
 								<input className="btn bg-sky-600 text-base-100" type="submit" value="Register" />
