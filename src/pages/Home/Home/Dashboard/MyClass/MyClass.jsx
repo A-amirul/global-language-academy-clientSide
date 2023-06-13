@@ -2,10 +2,10 @@ import { FaAmazonPay, FaTrashAlt } from "react-icons/fa";
 import useTitle from "../../../../../../useTitle";
 import useMyClass from "../../../../../hooks/useMyClass";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyClass = () => {
 	const [myClass,refetch] = useMyClass();
-	console.log(myClass);
 	const handleDelete = singleClass => {
 		Swal.fire({
 			title: 'Are you sure?',
@@ -79,7 +79,7 @@ const MyClass = () => {
 									<td>
 										<p className="text-lg font-medium">{singleClass.name} Language</p>
 									</td>
-									<td><p className="font-medium">{singleClass.price}</p></td>
+									<td><p className="font-medium">${singleClass.price}</p></td>
 									<td>
 										<button onClick={()=>handleDelete(singleClass)} className="btn btn-square btn-outline  w-16">
 											<FaTrashAlt className="h-5 w-6"></FaTrashAlt>
@@ -87,9 +87,9 @@ const MyClass = () => {
 										
 									</td>
 									<td>
-										<button className="btn btn-square btn-outline bg-amber-600 w-16">
+										<Link to={`/dashboard/payment?price=${singleClass.price}`}><button className="btn btn-square btn-outline bg-amber-600 w-16">
 											<FaAmazonPay className="h-6 w-6 text-white"></FaAmazonPay>
-										</button>
+										</button></Link>
 									</td>
 								</tr>)
 							}

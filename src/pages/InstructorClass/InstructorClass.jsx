@@ -1,22 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext,} from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import useClasses from "../../hooks/useClasses";
 
 const InstructorClass = () => {
-	const [classes, setClasses] = useState();
 	const { user } = useContext(AuthContext);
+	const [classes] = useClasses();
 
-	const allClasses = useLoaderData();
-
-	const userClasses = allClasses?.filter(instructorClass => user?.email === instructorClass?.email);
-	console.log(classes);
-	useEffect(() => {
-		setClasses(userClasses)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	const userClasses = classes?.filter(instructorClass => user?.email === instructorClass?.email);
+	console.log(userClasses);
+	
 	return (
 		<div>
-			<h2>My Class:{classes?.length}</h2>
+			<h2 className="text-5xl font-bold text-center p-10">My Classes:{userClasses?.length}</h2>
 		</div>
 	);
 };

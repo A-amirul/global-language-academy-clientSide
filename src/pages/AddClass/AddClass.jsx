@@ -86,7 +86,7 @@ const AddClass = () => {
 						<label className="label">
 							<span className="label-text font-semibold">Price*</span>
 						</label>
-						<input type="text" {...register("price", { required: true })} placeholder="($) Price" className="input input-bordered w-full " />
+						<input type="number" {...register("price", { required: true })} placeholder="($) Price" className="input input-bordered w-full " />
 					</div>
 				</div>
 				<div className='text-center'>

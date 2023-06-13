@@ -1,11 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBook, FaHome, FaUserTie, FaClipboardCheck, FaAlignLeft } from "react-icons/fa";
 import useAdmin from "../../../../hooks/useAdmin";
+import useInstructor from "../../../../hooks/useInstructor";
 
 const Dashboard = () => {
 
 	// TODO
-	// const isAdmin = true;
+	// const isInstructor = false;
+	const [isInstructor] = useInstructor();
 	const [isAdmin] = useAdmin();
 
 
@@ -35,22 +37,20 @@ const Dashboard = () => {
 							</div>
 						
 						</> : <>
-								<div>
-									<li><NavLink to="/dashboard"><FaHome></FaHome>Instructors Home</NavLink></li>
-									<li><NavLink to="/dashboard/addClass"><FaBook></FaBook> Add a Class</NavLink></li>
-									<li><NavLink to="/dashboard/instructorClass"><FaClipboardCheck></FaClipboardCheck>My Classes</NavLink></li>
-								</div>||
-								<div>
-									<li><NavLink to="/dashboard"><FaHome></FaHome>Student Home</NavLink></li>
-									<li><NavLink to="/dashboard/myClass"><FaBook></FaBook> My Classes</NavLink></li>
-									<li><NavLink to="/dashboard/enrollClass"><FaClipboardCheck></FaClipboardCheck>My Enrolled Classes</NavLink></li>
-								</div>
-
-								{/* || <div>
-									<li><NavLink to="/dashboard"><FaHome></FaHome>Instructors Home</NavLink></li>
-									<li><NavLink to="/dashboard/addClass"><FaBook></FaBook> Add a Class</NavLink></li>
-									<li><NavLink to="/dashboard/enrollClass"><FaClipboardCheck></FaClipboardCheck>My Classes</NavLink></li>
-							</div> */}
+								{isInstructor ?
+									<>
+										<li><NavLink to="/dashboard"><FaHome></FaHome>Instructors Home</NavLink></li>
+										<li><NavLink to="/dashboard/addClass"><FaBook></FaBook> Add a Class</NavLink></li>
+										<li><NavLink to="/dashboard/instructorClass"><FaClipboardCheck></FaClipboardCheck>My Classes</NavLink></li>
+									</> : <>
+										<div>
+											<li><NavLink to="/dashboard"><FaHome></FaHome>Student Home</NavLink></li>
+											<li><NavLink to="/dashboard/myClass"><FaBook></FaBook> My Classes</NavLink></li>
+											<li><NavLink to="/dashboard/enrollClass"><FaClipboardCheck></FaClipboardCheck>My Enrolled Classes</NavLink></li>
+										</div>
+									
+									</>
+								}
 						
 						</>
 					}
