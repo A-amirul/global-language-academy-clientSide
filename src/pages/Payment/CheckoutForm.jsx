@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import "./CheckoutForm.css"
 
 
-const CheckoutForm = ({ price }) => {
+const CheckoutForm = ({singleClass, price }) => {
 	const stripe = useStripe();
 	const elements = useElements();
 	const { user } = useAuth();
@@ -18,7 +18,6 @@ const CheckoutForm = ({ price }) => {
 	const [transactionId, setTransactionId] = useState('');
 
 	useEffect(() => {
-		console.log({ price });
 		if (price > 0) {
 			axiosSecure.post('/create-payment-intent', { price })
 				.then(res => {
@@ -56,7 +55,6 @@ const CheckoutForm = ({ price }) => {
 		}
 
 		setProcessing(true)
-		console.log({ clientSecret });
 
 		const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
 			clientSecret,
@@ -79,20 +77,19 @@ const CheckoutForm = ({ price }) => {
 		setProcessing(false)
 		if (paymentIntent.status === 'succeeded') {
 			setTransactionId(paymentIntent.id);
-			// save payment information to the server
 			const payment = {
 				email: user?.email,
 				transactionId: paymentIntent.id,
 				price,
 				date: new Date(),
-				// classes: myClass.map(singleClass=> singleClass._id),
+				classId:singleClass._id,
 				status: 'service pending',
-				// className: myClass.map(singleClass=> singleClass.name)
+				className: singleClass.name
 			}
 			axiosSecure.post('/payments', payment)
 				.then(res => {
 					console.log(res.data);
-					if (res.data.result.insertedId) {
+					if (res?.data?.result?.insertedId) {
 						// display confirm
 					}
 				})
@@ -120,9 +117,7 @@ const CheckoutForm = ({ price }) => {
 						},
 					}}
 				/>
-				<button className="btn bg-red-600" type="submit"
-				// disabled={!stripe || !clientSecret || processing}
-				>
+				<button className="btn bg-red-600" type="submit" disabled={!stripe ||!clientSecret || processing}>
 					<FaAmazonPay className="text-white w-10 h-4 "></FaAmazonPay>
 				</button>
 			</form>

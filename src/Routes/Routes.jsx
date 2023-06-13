@@ -18,6 +18,7 @@ import AllClass from "../pages/AllClass/AllClass";
 import AdminRoute from "./AdminRoute";
 import InstructorClass from "../pages/InstructorClass/InstructorClass";
 import Payment from "../pages/Payment/Payment";
+import PaymentHistory from "../pages/Payment/PaymentHistory";
 
 export const router = createBrowserRouter([
 	{
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
 			{
 				path: "payment",
 				element:<Payment></Payment>
+			},
+			{
+				path: "history",
+				element:<PaymentHistory></PaymentHistory>
 			}
 		]
 		

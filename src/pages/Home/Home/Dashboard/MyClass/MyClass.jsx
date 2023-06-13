@@ -87,7 +87,7 @@ const MyClass = () => {
 										
 									</td>
 									<td>
-										<Link to={`/dashboard/payment?price=${singleClass.price}`}><button className="btn btn-square btn-outline bg-amber-600 w-16">
+										<Link to={`/dashboard/payment?id=${singleClass._id}`}><button className="btn btn-square btn-outline bg-amber-600 w-16">
 											<FaAmazonPay className="h-6 w-6 text-white"></FaAmazonPay>
 										</button></Link>
 									</td>
