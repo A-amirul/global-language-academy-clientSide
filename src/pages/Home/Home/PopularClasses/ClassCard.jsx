@@ -1,7 +1,7 @@
 import { Zoom } from "react-awesome-reveal";
 
 const ClassCard = ({ pClass }) => {
-	const { availableSeats,price, image, name, instructor, } = pClass;
+	const { availableSeats,price, image, name, instructor,students } = pClass;
 	return (
 		<div className=" bg-base-200 shadow-sm ">
 			<Zoom>
@@ -12,6 +12,7 @@ const ClassCard = ({ pClass }) => {
 				<p className="text-lg font-medium"> Instructor: {instructor}</p>
 				<p className="font-medium">Course Fee:$ {price}</p>
 				<p className="font-medium">Available Seats:{availableSeats}</p>
+				<p className="font-medium">Students:{students}</p>
 				
 			</div>
 		</div>
