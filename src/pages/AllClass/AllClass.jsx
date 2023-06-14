@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useMyClass from "../../hooks/useMyClass";
 import { Link } from "react-router-dom";
+import useTitle from "../../../useTitle";
 
 const AllClass = () => {
 	const [myClass, refetch] = useMyClass();
@@ -59,6 +60,8 @@ const AllClass = () => {
 			}
 		})
 	}
+
+	useTitle('All Class');
 
 	return (
 		<div className="bg-base-200">

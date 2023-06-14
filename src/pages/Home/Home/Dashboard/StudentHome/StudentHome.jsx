@@ -1,5 +1,7 @@
 import { Flip, Zoom } from "react-awesome-reveal";
+import useTitle from "../../../../../../useTitle";
 const StudentHome = () => {
+	useTitle('Student Home');
 	return (
 		<div className="flex items-center">
 			<Zoom>

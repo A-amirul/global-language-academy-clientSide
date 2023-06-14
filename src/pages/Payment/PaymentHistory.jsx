@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import useTitle from "../../../useTitle";
 
 const PaymentHistory = () => {
 	const [payments, setPayments] = useState();
@@ -15,6 +16,8 @@ const PaymentHistory = () => {
 	}, [])
 
 	const myPayments = payments?.filter(data => data.email === user.email);
+
+	useTitle('Payment History');
 	return (
 		<div className="bg-base-200">
 			<h2 className="text-5xl text-center font-bold py-10">My Payment History: {myPayments?.length}</h2>

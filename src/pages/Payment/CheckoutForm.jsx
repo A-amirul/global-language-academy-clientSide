@@ -6,6 +6,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import "./CheckoutForm.css"
 import Swal from "sweetalert2";
+import useTitle from "../../../useTitle";
 
 
 const CheckoutForm = ({singleClass, price }) => {
@@ -105,6 +106,8 @@ const CheckoutForm = ({singleClass, price }) => {
 
 
 	}
+
+	useTitle('CheckOut');
 
 	return (
 		<>

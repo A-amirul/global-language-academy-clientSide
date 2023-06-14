@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
+import useTitle from '../../../useTitle';
 
 
 const AddClass = () => {
@@ -34,6 +35,8 @@ const AddClass = () => {
 
 
 	};
+
+	useTitle('Add a Class');
 	return (
 		<div className="w-full p-10">
 			<h1 className='text-5xl font-bold text-center'>Add a Class</h1>

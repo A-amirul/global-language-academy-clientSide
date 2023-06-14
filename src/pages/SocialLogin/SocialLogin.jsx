@@ -35,6 +35,7 @@ const SocialLogin = () => {
 				console.log(error.message);
 			});
 	};
+	
 	return (
 		<div className="mx-auto">
 			<hr className="my-4" />

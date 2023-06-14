@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FaUserShield, FaUserTie } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useTitle from "../../../useTitle";
 
 const AllUser = () => {
 	const [axiosSecure] = useAxiosSecure();
@@ -9,6 +10,8 @@ const AllUser = () => {
 		const res = await axiosSecure.get('/users')
 		return res.data;
 	})
+
+	useTitle('Manage User');
 
 	const handleMakeAdmin = user => {
 		fetch(`https://global-language-academy-server-sable.vercel.app/users/admin/${user._id}`, {

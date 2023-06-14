@@ -4,6 +4,7 @@ import useInstructors from "../../../../../hooks/useInstructors";
 import useAxiosSecure from "../../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaBook, FaUser, FaUserTie } from "react-icons/fa";
+import useTitle from "../../../../../../useTitle";
 
 const AdminHome = () => {
 	const [classes] = useClasses();
@@ -14,6 +15,8 @@ const AdminHome = () => {
 		const res = await axiosSecure.get('/users')
 		return res.data;
 	})
+
+	useTitle('Admin Home')
 
 	return (
 		<>

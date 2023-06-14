@@ -3,6 +3,7 @@ import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLocation } from "react-router-dom";
 import useMyClass from "../../hooks/useMyClass";
+import useTitle from "../../../useTitle";
 
 const Payment = () => {
 	const [myClass] = useMyClass();
@@ -13,6 +14,8 @@ const Payment = () => {
 
 
 	const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+
+	useTitle("Payment");
 	return (
 		<div className="w-9/12 p-10 mx-4">
 			<h2 className="text-4xl text-center font-bold">Please Payment!! </h2>
