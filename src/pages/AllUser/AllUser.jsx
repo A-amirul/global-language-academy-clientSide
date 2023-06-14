@@ -53,51 +53,55 @@ const AllUser = () => {
 			})
 	}
 	return (
-		<div className="overflow-x-auto pt-20 px-10 bg-green-200">
-			<table className="table">
-				{/* head */}
-				<thead className="font-bold text-xl">
-					<tr className="bg-green-300">
-						<th>#</th>
-						<th>User Name</th>
-						<th>Email Address</th>
-						<th>Make Admin</th>
-						<th>Make Instructor</th>
-					</tr>
-				</thead>
-				<tbody>
-					{
-						users?.map((user, index) => <tr key={user._id}>
+		<div className="bg-green-100">
+			<h2 className="text-4xl font-bold text-center py-8">All Users</h2>
 
-							<td>
-								{index + 1}
-							</td>
-							<td>
-								<p className="font-semibold text-lg">{user.name}</p>
-							</td>
-							<td>
-								<p className="text-lg font-medium">{user.email}</p>
-							</td>
-							<td>
-								<span className="font-medium">
-									{user.role === 'admin' ? 'Admin' : <button onClick={() => handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie></button>}
-								</span>
+			<div className="overflow-x-auto bg-green-200">
+				<table className="table">
+					{/* head */}
+					<thead className="font-bold text-xl">
+						<tr className="bg-green-300">
+							<th>#</th>
+							<th>User Name</th>
+							<th>Email Address</th>
+							<th>Make Admin</th>
+							<th>Make Instructor</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							users?.map((user, index) => <tr key={user._id}>
 
-							</td>
-							<td>
-								<span className="font-medium">
-									{
-										user.role === 'instructor' ? 'Instructor' :
-											<button onClick={() => handleMakeInstructor(user)} className="btn bg-red-400 text-white normal-case"><FaUserShield></FaUserShield></button>
-									}
-								</span>
-							</td>
+								<td>
+									{index + 1}
+								</td>
+								<td>
+									<p className="font-semibold text-lg">{user.name}</p>
+								</td>
+								<td>
+									<p className="text-lg font-medium">{user.email}</p>
+								</td>
+								<td>
+									<span className="font-medium">
+										{user.role === 'admin' ? 'Admin' : <button onClick={() => handleMakeAdmin(user)} className="btn text-white bg-green-800 normal-case"><FaUserTie></FaUserTie></button>}
+									</span>
 
-						</tr>)
-					}
+								</td>
+								<td>
+									<span className="font-medium">
+										{
+											user.role === 'instructor' ? 'Instructor' :
+												<button onClick={() => handleMakeInstructor(user)} className="btn bg-red-400 text-white normal-case"><FaUserShield></FaUserShield></button>
+										}
+									</span>
+								</td>
 
-				</tbody>
-			</table>
+							</tr>)
+						}
+
+					</tbody>
+				</table>
+			</div>
 		</div>
 	);
 };

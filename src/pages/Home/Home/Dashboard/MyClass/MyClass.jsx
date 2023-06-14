@@ -44,7 +44,7 @@ const MyClass = () => {
 		<div className="bg-base-200">
 			<h2 className="text-5xl text-center font-bold py-10">My Class: {addedClass?.length}</h2>
 			<div>
-				<div className="overflow-x-auto px-10 bg-green-200">
+				<div className="overflow-x-auto bg-green-200">
 					<table className="table">
 						{/* head */}
 						<thead className="font-bold text-xl">
