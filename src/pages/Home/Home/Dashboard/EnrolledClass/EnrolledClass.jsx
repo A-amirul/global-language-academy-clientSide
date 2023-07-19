@@ -15,7 +15,7 @@ const EnrolledClass = () => {
 	}, [])
 	const enrolledClasses = payments?.filter(data => data.email === user.email)
 	return (
-		<div className="bg-base-200">
+		<div className="bg-base-200 md:min-w-full">
 			<h2 className="text-5xl text-center font-bold py-10">Enroll Class: {enrolledClasses?.length}</h2>
 			<div>
 				<div className="overflow-x-auto px-10 bg-green-200">

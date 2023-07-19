@@ -5,6 +5,7 @@ import { AuthContext } from "../../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useMyClass from "../../../../hooks/useMyClass";
+import { Zoom } from "react-awesome-reveal";
 
 const Classes = () => {
 	const [classes] = useClasses();
@@ -57,60 +58,30 @@ const Classes = () => {
 
 	useTitle("Classes");
 	return (
-		<>
-			<div className="overflow-x-auto pt-20 px-10 bg-green-200">
-				<table className="table">
-					{/* head */}
-					<thead className="font-bold text-xl text-green-900">
-						<tr className="bg-green-300">
-							<th>#</th>
-							<th>Image</th>
-							<th>Instructor Name</th>
-							<th>Course</th>
-							<th>Course fee </th>
-							<th>Available Seats </th>
-							<th>Select Classes</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							classes?.map((singleClass, index) => <tr key={singleClass._id}>
+		<div className="py-20">
+			<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{
+					classes?.map((singleClass, index) => <div key={index}>
+					
+						<div className=" bg-base-200 shadow-sm ">
+							<Zoom>
+								<figure><img src={singleClass?.image} alt="Album" /></figure>
+							</Zoom>
+							<div className="card-body ">
+								<h2 className="text-2xl font-semibold">{singleClass?.name} Language</h2>
+								<p className="text-lg font-medium"> Instructor: {singleClass?.instructor}</p>
+								<p className="font-medium">Course Fee:$ {singleClass?.price}</p>
+								<div className="md:flex">
+									<p className="font-medium">Available Seats:{singleClass?.availableSeats}</p>
+									<button className="btn btn-outline  bg-green-600 text-white" onClick={() => handleSelect(singleClass)}>Select</button>
+								</div>
 
-								<td>
-									{index + 1}
-
-								</td>
-
-								<td>
-									<div className="flex items-center space-x-3">
-										<div className="avatar">
-											<div className="mask mask-squire w-24 h-24">
-												<img src={singleClass.image} alt="Avatar Tailwind CSS Component" />
-											</div>
-										</div>
-
-									</div>
-								</td>
-								<td>
-									<p className="font-semibold text-lg">{singleClass.instructor}</p>
-								</td>
-								<td>
-									<p className="text-lg font-medium">{singleClass.name} Language</p>
-								</td>
-								<td>{singleClass.price}</td>
-								<td>{singleClass.availableSeats}</td>
-								<td className="w-20">
-									<label>
-										<input onClick={() => handleSelect(singleClass)} type="checkbox" className="checkbox w-8 h-8 border-4 border-sky-700" />
-									</label>
-								</td>
-							</tr>)
-						}
-
-					</tbody>
-				</table>
+							</div>
+						</div>
+					</div>)
+				}
 			</div>
-		</>
+		</div>
 	);
 };
 
