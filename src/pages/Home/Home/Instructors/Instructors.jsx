@@ -7,7 +7,7 @@ const Instructors = () => {
 	useTitle("Instructors");
 	return (
 		<>
-			<div className="overflow-x-auto pt-20 px-10 bg-green-200">
+			<div className="overflow-x-auto pt-20 px-10 bg-white">
 				<table className="table">
 					{/* head */}
 					<thead className="font-bold text-xl">
@@ -45,7 +45,7 @@ const Instructors = () => {
 									<p className="text-lg font-medium">{instructor.email} Language</p>
 								</td>
 								<td><p className="font-bold">{instructor.classesTaken}</p></td>
-								
+
 							</tr>)
 						}
 

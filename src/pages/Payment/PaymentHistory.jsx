@@ -19,10 +19,10 @@ const PaymentHistory = () => {
 
 	useTitle('Payment History');
 	return (
-		<div className="bg-base-200 md:min-w-full">
+		<div className="bg-white md:min-w-full">
 			<h2 className="text-5xl text-center font-bold py-10">My Payment History: {myPayments?.length}</h2>
 			<div>
-				<div className="overflow-x-auto bg-green-200">
+				<div className="overflow-x-auto bg-white">
 					<table className="table">
 						{/* head */}
 						<thead className="font-bold text-xl">

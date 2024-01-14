@@ -44,16 +44,16 @@ const Login = () => {
 
 	useTitle("Login")
 
-	
+
 
 	return (
-		<div className="hero min-h-screen bg-base-200 mx-auto py-16 md:px-16">
+		<div className="hero min-h-screen bg-white mx-auto py-16 md:px-16">
 			<div className="hero-content flex-col lg:flex-row-reverse">
 				<div className="text-center lg:text-left md:w-1/2 mx-auto">
 					<h1 className="text-3xl font-semibold">Create Your Account</h1>
 					<p className="py-6">By registering at Global Language Academy, you will be able to Enroll and access the Course materials and Status of your course. Create your new account easily.</p>
 					<div className="form-control mt-6">
-						<Link to="/register" className="btn bg-sky-600 rounded-full text-base-100">Register Please</Link>
+						<Link to="/register" className="btn bg-sky-600 rounded-full text-white">Register Please</Link>
 					</div>
 				</div>
 
@@ -82,7 +82,7 @@ const Login = () => {
 											<FaEye onClick={handlePasswordClick} />
 										)}
 									</div>
-									
+
 								</div>
 								{errors.email && <span className="text-red-600">Password is required</span>}
 								<label className="label">
@@ -91,7 +91,7 @@ const Login = () => {
 								<p className="text-red-600">{error}</p>
 							</div>
 							<div className="form-control mt-6">
-								<input className="btn bg-sky-600 rounded-full text-base-100" type="submit" value="Login" />
+								<input className="btn bg-sky-600 rounded-full text-white" type="submit" value="Login" />
 							</div>
 						</form>
 						<SocialLogin></SocialLogin>

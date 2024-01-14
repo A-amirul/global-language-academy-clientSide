@@ -1,4 +1,4 @@
-import { useContext,} from "react";
+import { useContext, } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useClasses from "../../hooks/useClasses";
 import useTitle from "../../../useTitle";
@@ -11,12 +11,12 @@ const InstructorClass = () => {
 	console.log(instructorClasses);
 
 	useTitle('Enrolled Students');
-	
+
 	return (
-		<div className="bg-base-200">
+		<div className="bg-white">
 			<h2 className="text-5xl text-center font-bold py-10">Total Enrolled Students: {instructorClasses?.length}</h2>
 			<div>
-				<div className="overflow-x-auto bg-green-200">
+				<div className="overflow-x-auto bg-white">
 					<table className="table">
 						{/* head */}
 						<thead className="font-bold text-xl">
@@ -58,7 +58,7 @@ const InstructorClass = () => {
 										<p className="text-lg font-medium">{singleClass.availableSeats}</p>
 									</td>
 									<td><p className="font-medium">${singleClass.price}</p></td>
-									
+
 								</tr>)
 							}
 

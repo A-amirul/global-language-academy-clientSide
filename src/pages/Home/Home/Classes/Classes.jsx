@@ -61,11 +61,11 @@ const Classes = () => {
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 				{
 					classes?.map((singleClass, index) => <div key={index}>
-					
-						<div className=" bg-base-200 shadow-sm ">
-							
-								<figure><img src={singleClass?.image} alt="Album" /></figure>
-							
+
+						<div className=" bg-white shadow-sm ">
+
+							<figure><img src={singleClass?.image} alt="Album" /></figure>
+
 							<div className="card-body ">
 								<h2 className="text-2xl font-semibold">{singleClass?.name} Language</h2>
 								<p className="text-lg font-medium"> Instructor: {singleClass?.instructor}</p>

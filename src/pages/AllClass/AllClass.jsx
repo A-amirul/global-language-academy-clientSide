@@ -64,10 +64,10 @@ const AllClass = () => {
 	useTitle('All Class');
 
 	return (
-		<div className="bg-base-200">
+		<div className="bg-white">
 			<h2 className="text-5xl text-center font-bold py-10">All Class: {myClass?.length}</h2>
 			<div>
-				<div className="overflow-x-auto bg-green-200">
+				<div className="overflow-x-auto bg-white">
 					<table className="table">
 						{/* head */}
 						<thead className="font-bold text-xl">
@@ -110,14 +110,14 @@ const AllClass = () => {
 									<td><p className="font-medium">${singleClass.price}</p></td>
 									<td>
 										<Link>
-											<button onClick={()=>handleApproved(singleClass)} className="btn btn-primary" >Approved</button>
+											<button onClick={() => handleApproved(singleClass)} className="btn btn-primary" >Approved</button>
 										</Link>
-									
+
 									</td>
 									<td>
-										
-											<button onClick={() => handleDenied(singleClass)} className="btn btn-info">Denied</button>
-										
+
+										<button onClick={() => handleDenied(singleClass)} className="btn btn-info">Denied</button>
+
 									</td>
 
 								</tr>)

@@ -2,7 +2,7 @@ import logo from "../../assets/logo.png"
 const Footer = () => {
 	return (
 		<div>
-			<footer className="footer  p-20 bg-black text-base-100">
+			<footer className="footer text-white p-20 bg-violet-950">
 				<div>
 					<span className="footer-title">Services</span>
 					<a className="link link-hover">Branding</a>
@@ -24,7 +24,7 @@ const Footer = () => {
 					<a className="link link-hover">Cookie policy</a>
 				</div>
 			</footer>
-			<footer className="footer px-10 py-4  bg-black text-base-100 border-base-300">
+			<footer className="footer px-10 py-4  bg-violet-950  border-base-300">
 				<div className="items-center grid-flow-col">
 					<img className="rounded-xl" src={logo} alt="" />
 					<p className="text-medium text-center text-xl mx-4">Providing reliable tech since 2010</p>
@@ -38,7 +38,7 @@ const Footer = () => {
 				</div>
 
 			</footer>
-			<footer className="text-center bg-black text-base-100 py-2">
+			<footer className="text-center bg-violet-950 text-white py-2">
 				<p>Copyright © 2023 - All right reserved by Global Language Academy</p>
 			</footer>
 		</div>

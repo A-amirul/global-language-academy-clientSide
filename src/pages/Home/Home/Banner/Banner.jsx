@@ -6,7 +6,7 @@ import banner3 from "../../../../assets/banner3.png"
 
 const Banner = () => {
 	return (
-		<div className=" pt-16 md:pt-0">
+		<div className=" pt-16">
 			<Carousel
 				showThumbs={false}
 				infiniteLoop={true}

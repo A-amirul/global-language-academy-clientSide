@@ -56,7 +56,7 @@ const AllUser = () => {
 		<div className="bg-green-100">
 			<h2 className="text-4xl font-bold text-center py-8">All Users</h2>
 
-			<div className="overflow-x-auto bg-green-200">
+			<div className="overflow-x-auto bg-white">
 				<table className="table">
 					{/* head */}
 					<thead className="font-bold text-xl">

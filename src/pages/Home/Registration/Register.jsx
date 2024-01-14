@@ -68,7 +68,7 @@ const Register = () => {
 	useTitle("Register");
 
 	return (
-		<div className="hero min-h-screen bg-base-200">
+		<div className="hero min-h-screen bg-white">
 			<div>
 
 				<div className="card w-full shadow-2xl bg-base-100">
@@ -149,7 +149,7 @@ const Register = () => {
 								{errors.confirmPassword?.type === 'required' && <span className="text-red-600">Confirm password required</span>}
 							</div>
 							<div className="form-control mt-6">
-								<input className="btn bg-sky-600 text-base-100" type="submit" value="Register" />
+								<input className="btn bg-sky-600 text-white" type="submit" value="Register" />
 							</div>
 						</form>
 						<label className="label">
