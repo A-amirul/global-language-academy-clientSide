@@ -1,12 +1,10 @@
-import { Zoom } from "react-awesome-reveal";
+
 
 const ClassCard = ({ pClass }) => {
 	const { availableSeats,price, image, name, instructor,students } = pClass;
 	return (
 		<div className=" bg-base-200 shadow-sm ">
-			<Zoom>
 				<figure><img src={image} alt="Album" /></figure>
-			</Zoom>
 			<div className="card-body ">
 				<h2 className="text-2xl font-semibold">{name} Language</h2>
 				<p className="text-lg font-medium"> Instructor: {instructor}</p>

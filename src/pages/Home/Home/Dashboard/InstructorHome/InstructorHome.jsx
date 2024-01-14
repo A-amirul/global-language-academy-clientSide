@@ -1,9 +1,7 @@
-import { Zoom } from "react-awesome-reveal";
 
 const InstructorHome = () => {
 	return (
 		<div className="flex items-center">
-			<Zoom>
 				<div className="border shadow-md bg-green-600 text-white text-center p-10 m-10">
 					<h2 className="text-5xl font-extrabold">Welcome to Visit Global Language Academy!!</h2>
 
@@ -13,7 +11,6 @@ const InstructorHome = () => {
 
 				</div>
 
-			</Zoom>
 
 		</div>
 	);

@@ -5,7 +5,6 @@ import { AuthContext } from "../../../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useMyClass from "../../../../hooks/useMyClass";
-import { Zoom } from "react-awesome-reveal";
 
 const Classes = () => {
 	const [classes] = useClasses();
@@ -64,9 +63,9 @@ const Classes = () => {
 					classes?.map((singleClass, index) => <div key={index}>
 					
 						<div className=" bg-base-200 shadow-sm ">
-							<Zoom>
+							
 								<figure><img src={singleClass?.image} alt="Album" /></figure>
-							</Zoom>
+							
 							<div className="card-body ">
 								<h2 className="text-2xl font-semibold">{singleClass?.name} Language</h2>
 								<p className="text-lg font-medium"> Instructor: {singleClass?.instructor}</p>
