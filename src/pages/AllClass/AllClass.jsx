@@ -71,7 +71,7 @@ const AllClass = () => {
 					<table className="table">
 						{/* head */}
 						<thead className="font-bold text-xl">
-							<tr className="bg-green-300">
+							<tr className="bg-slate-200">
 								<th>#</th>
 								<th>Image</th>
 								<th>Instructor Name</th>

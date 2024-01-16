@@ -72,7 +72,7 @@ const Classes = () => {
 								<p className="font-medium">Course Fee:$ {singleClass?.price}</p>
 								<div className="md:flex">
 									<p className="font-medium">Available Seats:{singleClass?.availableSeats}</p>
-									<button className="btn btn-outline  bg-green-600 text-white" onClick={() => handleSelect(singleClass)}>Select</button>
+									<button className="btn btn-outline  bg-white text-white" onClick={() => handleSelect(singleClass)}>Select</button>
 								</div>
 
 							</div>

@@ -53,15 +53,18 @@ const AllUser = () => {
 			})
 	}
 	return (
-		<div className="bg-green-100">
-			<h2 className="text-4xl font-bold text-center py-8">All Users</h2>
+		<div className="bg-white">
+			<h2 className="text-4xl font-bold md:text-center mx-20 mb-5 md:py-8 ">All Users</h2>
 
-			<div className="overflow-x-auto bg-white">
-				<table className="table">
+
+			
+
+			<div className="overflow-x-auto">
+				<table className="table table-xs table-pin-rows table-pin-cols">
 					{/* head */}
 					<thead className="font-bold text-xl">
-						<tr className="bg-green-300">
-							<th>#</th>
+						<tr className="bg-slate-300">
+							<th>SL.</th>
 							<th>User Name</th>
 							<th>Email Address</th>
 							<th>Make Admin</th>

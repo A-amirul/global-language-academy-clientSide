@@ -48,7 +48,7 @@ const MyClass = () => {
 					<table className="table">
 						{/* head */}
 						<thead className="font-bold text-xl">
-							<tr className="bg-green-300">
+							<tr className="bg-slate-200">
 								<th>#</th>
 								<th>Image</th>
 								<th>Instructor Name</th>
@@ -70,7 +70,7 @@ const MyClass = () => {
 									<td>
 										<div className="flex items-center space-x-3">
 											<div className="avatar">
-												<div className="mask mask-squire w-24 h-24">
+												<div className="mask mask-squire w-20 h-20">
 													<img src={singleClass.image} alt="Avatar" />
 												</div>
 											</div>
