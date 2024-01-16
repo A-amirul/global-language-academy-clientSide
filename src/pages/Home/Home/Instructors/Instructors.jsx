@@ -10,7 +10,7 @@ const Instructors = () => {
 			<div className="overflow-x-auto pt-20 px-10 bg-white">
 				<table className="table">
 					{/* head */}
-					<thead className="font-bold text-xl">
+					<thead className="font-bold text-xl text-primary">
 						<tr>
 							<th>#</th>
 							<th>Image</th>
@@ -18,8 +18,8 @@ const Instructors = () => {
 							<th>Email Address</th>
 							<th>Classes Taken</th>
 						</tr>
-					</thead>
-					<tbody>
+					</thead >
+					<tbody className="text-black">
 						{
 							instructors?.map((instructor, index) => <tr key={index}>
 
@@ -42,7 +42,7 @@ const Instructors = () => {
 									<p className="font-semibold text-lg">{instructor.name}</p>
 								</td>
 								<td>
-									<p className="text-lg font-medium">{instructor.email} Language</p>
+									<p className="text-lg font-medium">{instructor.email}</p>
 								</td>
 								<td><p className="font-bold">{instructor.classesTaken}</p></td>
 
